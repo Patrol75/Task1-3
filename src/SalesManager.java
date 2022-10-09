@@ -27,12 +27,20 @@ public class SalesManager {
     public int stat() {
         int sum = 0;
         int count = 0;
+        boolean minCount = false;
+        boolean maxCount = false;
         int max = this.max();
         int min = this.min();
         for (int sale : sales) {
-            if (sale != min && sale != max) {
-                sum += sale;
-                count++;
+            if (sale != min || minCount) {
+                if (sale != max || maxCount) {
+                    sum += sale;
+                    count++;
+                } else {
+                    maxCount = true;
+                }
+            } else {
+                minCount = true;
             }
         }
         return sum / count;
