@@ -1,3 +1,5 @@
+package ru.netology;
+
 public class SalesManager {
     protected long[] sales;
 
@@ -14,6 +16,7 @@ public class SalesManager {
         }
         return max;
     }
+
     public long min() {
         long min = 10;
         for (long sale : sales) {
